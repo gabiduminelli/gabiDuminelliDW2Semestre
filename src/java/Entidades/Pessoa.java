@@ -31,7 +31,7 @@ public class Pessoa implements Serializable {
     @Id
     @Basic(optional = false)
     @Column(name = "cpf")
-    private Integer cpf;
+    private String cpf;
     @Basic(optional = false)
     @Column(name = "nome_pessoa")
     private String nomePessoa;
@@ -49,22 +49,22 @@ public class Pessoa implements Serializable {
     public Pessoa() {
     }
 
-    public Pessoa(Integer cpf) {
+    public Pessoa(String cpf) {
         this.cpf = cpf;
     }
 
-    public Pessoa(Integer cpf, String nomePessoa, int idadePessoa, String email) {
+    public Pessoa(String cpf, String nomePessoa, int idadePessoa, String email) {
         this.cpf = cpf;
         this.nomePessoa = nomePessoa;
         this.idadePessoa = idadePessoa;
         this.email = email;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 
@@ -131,14 +131,6 @@ public class Pessoa implements Serializable {
     @Override
     public String toString() {
         return "Entidades.Pessoa[ cpf=" + cpf + " ]";
-    }
-
-    public void setCpf(String cpf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setIdadePessoa(String idade) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

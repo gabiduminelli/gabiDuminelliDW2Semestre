@@ -6,12 +6,15 @@
 package Entidades;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -32,6 +35,8 @@ public class Materia implements Serializable {
     @Basic(optional = false)
     @Column(name = "nome_materia")
     private String nomeMateria;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "materiaIdMateria")
+    private List<Turma> turmaList;
 
     public Materia() {
     }
@@ -59,6 +64,14 @@ public class Materia implements Serializable {
 
     public void setNomeMateria(String nomeMateria) {
         this.nomeMateria = nomeMateria;
+    }
+
+    public List<Turma> getTurmaList() {
+        return turmaList;
+    }
+
+    public void setTurmaList(List<Turma> turmaList) {
+        this.turmaList = turmaList;
     }
 
     @Override

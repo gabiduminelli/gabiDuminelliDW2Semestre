@@ -38,7 +38,7 @@ public class CadPessoaServlet extends HttpServlet {
 
             DAOPessoa daoPessoa = new DAOPessoa();
             Pessoa p = new Pessoa();
-            Integer cpf = Integer.parseInt(request.getParameter("cpf"));
+            String cpf = request.getParameter("cpf");
             String nome = request.getParameter("nomePessoa");
             int idade = Integer.parseInt(request.getParameter("idadePessoa"));
             String email = request.getParameter("email");

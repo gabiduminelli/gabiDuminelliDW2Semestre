@@ -23,7 +23,7 @@ public class DAOPessoa extends DAOGenerico<Pessoa> {
         }
     }
 
-    public List<Pessoa> listByCpf(int cpf) {
+    public List<Pessoa> listByCpf(String cpf) {
         return em.createQuery("SELECT e FROM Pessoa e WHERE e.cpf = :cpf").setParameter("cpf", cpf).getResultList();
     }
 

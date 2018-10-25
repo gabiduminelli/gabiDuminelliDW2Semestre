@@ -37,11 +37,11 @@ public class CadMateriaServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             DAOMateria daoMateria = new DAOMateria();
             Materia m= new Materia();
-            Integer id = Integer.parseInt(request.getParameter("idMateria"));
+            //Integer id = Integer.parseInt(request.getParameter("idMateria"));
             String nome = request.getParameter("nomeMateria");
             
 
-            m.setIdMateria(id);
+           // m.setIdMateria(id);
             m.setNomeMateria(nome);
            
 

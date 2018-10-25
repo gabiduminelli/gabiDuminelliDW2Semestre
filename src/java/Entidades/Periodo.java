@@ -7,12 +7,15 @@ package Entidades;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -38,6 +41,8 @@ public class Periodo implements Serializable {
     @Column(name = "data_final")
     @Temporal(TemporalType.DATE)
     private Date dataFinal;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "periodoIdPeriodo")
+    private List<Turma> turmaList;
 
     public Periodo() {
     }
@@ -68,6 +73,14 @@ public class Periodo implements Serializable {
 
     public void setDataFinal(Date dataFinal) {
         this.dataFinal = dataFinal;
+    }
+
+    public List<Turma> getTurmaList() {
+        return turmaList;
+    }
+
+    public void setTurmaList(List<Turma> turmaList) {
+        this.turmaList = turmaList;
     }
 
     @Override

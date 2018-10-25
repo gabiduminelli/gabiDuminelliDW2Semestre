@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CadAlunoervlet", urlPatterns = {"/cadastroAlunos"})
 public class CadAlunoervlet extends HttpServlet {
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -48,11 +48,11 @@ public class CadAlunoervlet extends HttpServlet {
             Aluno a = new Aluno();
             DAOPessoa daoPessoa = new DAOPessoa();
             Pessoa p = new Pessoa();
-            int ra = Integer.parseInt(request.getParameter("ra"));
+           // int ra = Integer.parseInt(request.getParameter("ra"));
             Date data = sdf.parse(request.getParameter("data"));
-            int cpf = Integer.parseInt(request.getParameter("pessoaCpf"));
+            String cpf = request.getParameter("pessoaCpf");
             p = daoPessoa.listByCpf(cpf).get(0);
-            a.setRaAluno(ra);
+           // a.setRaAluno(ra);
             a.setDataIngresso(data);
             a.setPessoaCpf(p);
             daoAluno.inserir(a);

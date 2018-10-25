@@ -27,18 +27,18 @@
     </head>
     <body>
         <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/curso">CURSOS</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/titulacao">TITULACOES</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/paginas/pessoaJstl.jsp">PESSOAS</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/paginas/materiaScriplet.jsp">MATERIAS</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/aluno">ALUNOS</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/professor">PROFESSORES</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/paginas/pessoacad.jsp">CADASTREPESSOA</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/paginas/alunocad.jsp">CADASTROALUNO</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/paginas/titulacaocad.jsp">CADASTROTITULACAO</a></li>
-            <li><a href="http://localhost:8084/GabiDuminelli_UniversidadeEstadualDeLondrina_segundobim/paginas/materiacad.jsp">CADASTROMATERIA</a></li>
-
+           <li><a class="active" href="${pageContext.request.contextPath}/paginas/pgum.jsp">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/curso">CURSOS</a></li>
+            <li><a href="${pageContext.request.contextPath}/titulacao">TITULACÕES</a></li>
+            <li><a href="${pageContext.request.contextPath}/paginas/pessoaJstl.jsp">PESSOAS</a></li>
+            <li><a href="${pageContext.request.contextPath}/paginas/materiaScriplet.jsp">MATÉRIAS</a></li>
+            <li><a href="${pageContext.request.contextPath}/aluno">ALUNOS</a></li>
+            <li><a href="${pageContext.request.contextPath}/professor">PROFESSORES</a></li>
+            <li><a href="${pageContext.request.contextPath}/paginas/pessoacad.jsp">CADASTRAR PESSOA</a></li>
+            <li><a href="${pageContext.request.contextPath}/paginas/alunocad.jsp">CADASTRAR ALUNO</a></li>
+            <li><a href="${pageContext.request.contextPath}/paginas/titulacaocad.jsp">CADASTRAR TITULACÃO</a></li>
+            <li><a href="${pageContext.request.contextPath}/paginas/materiacad.jsp">CADASTRAR MATÉRIA</a></li>
+            
         </ul>
         <div style="margin-left:25%;padding:1px 16px;height:1000px;">
         <div class="w3-card-4">
@@ -51,17 +51,22 @@
 
 
                 <p>
-                    <input class="w3-input" type="text" value="" name="ra" placeholder="Ra" id="ra_aluno" required/>
+            <%--        <input class="w3-input" type="text" value="" name="ra" placeholder="Ra" id="ra_aluno" required/>--%>
                     <input class="w3-input" type="text" value="" name="data" placeholder="Data Ingresso" id="data_ingresso" required/>
-                    <label class="w3-input">Pessoa Cpf</label>
+                    <label class="w3-input"  >Pessoa Cpf
+                    
                     <select class="w3-check" id="pessoa" name="pessoaCpf" >
-                            <option value="">SELECIONE</option>
+                        
+                        <option value="" >SELECIONE</option>
                             <%                       
                                 for (Pessoa p : pessoa) {
                             %>                    
                             <option value="<%=p.getCpf()%>"><%=p.getCpf()+"-"+p.getNomePessoa()%></option>
+                    
                             <%}%>
+                    
                     </select>
+                           </label>
                 </p>
                 <button class="w3-button w3-block w3-section w3-green w3-ripple w3-padding">Enviar</button>
             </form>

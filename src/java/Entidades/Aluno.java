@@ -93,7 +93,6 @@ public class Aluno implements Serializable {
     public void setPessoaCpf(Pessoa pessoaCpf) {
         this.pessoaCpf = pessoaCpf;
     }
-    
 
     @Override
     public int hashCode() {
@@ -119,7 +118,5 @@ public class Aluno implements Serializable {
     public String toString() {
         return "Entidades.Aluno[ raAluno=" + raAluno + " ]";
     }
-
-    
     
 }
